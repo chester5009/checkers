@@ -17,7 +17,7 @@ public:
     //5-'B' (черная дамка)
     int x;
     int y;
-    
+    void setValue(int val);
 private:
 
 };

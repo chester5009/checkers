@@ -27,12 +27,13 @@ public:
     
     int x1,x2,y1,y2;
     void stepInput(char* input);
-    void stepAction(vector<Cell>*field);
+    bool stepAction(vector<Cell>*field);
     void setCellValue(int i,int  value,vector<Cell>*field);
     int getIndexByCoord(int x,int y,vector<Cell>*field);
     bool checkOnEat(int team,vector<Cell>*field); //4-black 2- white
     void ai(vector<Cell>*field);
-    bool stepAi(int x1,int y1,int x2,int y2,vector<Cell>*field);
+    char symbols[8]={'a','b','c','d','e','f','g','h'};
+    int getIndexSymb(char c);
 private:
     
 };

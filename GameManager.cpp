@@ -16,6 +16,11 @@ GameManager::~GameManager() {
 
 void GameManager::render(){
     string row="";
+    row="  abcdefgh";
+    cout<<row<<endl;
+    row="__________";
+    cout<<row<<endl;
+    row="";
     for(int i=0;i<field->size();i++){
         int v=field->at(i).value;
         
@@ -38,20 +43,38 @@ void GameManager::render(){
         if(v==5){
             cell='B';
         }
+        
         row+=cell;
+        
         if(row.size()==8){
+            cout<<i/8+1;
+            cout<<'|';
             cout<<row<<endl;
             row="";
         }
     }
 }
 
+int GameManager::getIndexSymb(char c) {
+    for(int i=0;i<8;++i){
+        if(symbols[i]==c){
+            return i;
+        }
+    }
+    return -1;
+}
+
+
 void GameManager::input(){
     char*input=new char[100];
     cin>>input;
+
     actions.stepInput(input);
-    actions.stepAction(field);
-    //cout<<actions.checkOnEat(4,field)<<endl;
+    bool player=actions.stepAction(field);
+    if(player==true){
+       actions.ai(field);
+    }
+    
 }
 
 void GameManager::update(){

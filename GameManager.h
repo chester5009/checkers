@@ -28,6 +28,8 @@ private:
     void createField();
     vector<Cell>*field=new vector<Cell>();
     Actions actions;
+    char symbols[8]={'a','b','c','d','e','f','g','h'};
+    int getIndexSymb(char c);
 };
 
 #endif /* GAMEMANAGER_H */

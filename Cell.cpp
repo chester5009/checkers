@@ -13,3 +13,7 @@ Cell::Cell(int x,int y, int val) {
 Cell::~Cell() {
 }
 
+void Cell::setValue(int val) {
+    this->value=val;
+}
+
